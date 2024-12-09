@@ -97,6 +97,7 @@ export function useState<S>(
   initialState: (() => S) | S,
 ): [S, Dispatch<BasicStateAction<S>>] {
   const dispatcher = resolveDispatcher();
+console.log("hello");
   return dispatcher.useState(initialState);
 }
 
@@ -105,6 +106,10 @@ export function useReducer<S, I, A>(
   initialArg: I,
   init?: I => S,
 ): [S, Dispatch<A>] {
+
+  console.log("yo");
+  console.log("yoyo");
+
   const dispatcher = resolveDispatcher();
   return dispatcher.useReducer(reducer, initialArg, init);
 }
